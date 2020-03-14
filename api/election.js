@@ -6,9 +6,9 @@ module.exports = (app, db) => {
     app.get( "/polling-units", (req, res) => {
       db.polling_unit.findAll()
         .map(async(result) => {
-            const {ward_id,uniquewardid} = result;
-            const ward = await db.ward.findOne({where:{unique_id:ward_id}});
-            const lga = await db.lga.findOne({where:{uniqueid:uniquewardid}});
+            const {lga_id,uniquewardid} = result;
+            const ward = await db.ward.findOne({where:{uniqueid:uniquewardid}});
+            const lga = await db.lga.findOne({where:{lga_id:lga_id}});
             return {result,ward,lga}
         })
         .then(result=>res.status(200).json(result))
