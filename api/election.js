@@ -93,11 +93,11 @@ module.exports = (app, db) => {
             console.log(polling_unit_uniqueIds);
             // Use the aggregated polling unit id to get and sum announced polling unit result and group it to parties.
             let parties_score = await db.announced_pu_results.findAll({
-                // attributes: [
-                //     'party_abbreviation',
-                //     [db.sequelize.fn('sum', db.sequelize.col('party_score')), 'total_party_score'],
-                // ],
-                // group: ['party_abbreviation'],
+                attributes: [
+                    'party_abbreviation',
+                    [db.sequelize.fn('sum', db.sequelize.col('party_score')), 'total_party_score'],
+                ],
+                group: ['party_abbreviation'],
                 where:{polling_unit_uniqueid:{[Op.or]: polling_unit_uniqueIds}}
             });
 
