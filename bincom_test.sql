@@ -1242,5 +1242,5 @@ INSERT INTO `ward` (`uniqueid`, `ward_id`, `ward_name`, `lga_id`, `ward_descript
 (262, 0, 'Orere', 35, 'Orere', 'Bincom', '0000-00-00 00:00:00', '127.0.0.1'),
 (263, 0, 'Ugborodo', 35, 'Ugborodo', 'Bincom', '0000-00-00 00:00:00', '127.0.0.1');
 
-bincom_test.sql
-Displaying bincom_test.sql.
+-- bincom_test.sql
+-- Displaying bincom_test.sql.
