@@ -88,7 +88,7 @@ module.exports = (app, db) => {
 
             // Aggregating all the polling units id together in to an array
             let polling_unit_uniqueIds = polling_units.map(polling_unit=>{
-                return polling_units.uniqueid;
+                return polling_unit.uniqueid;
             });
             console.log(polling_unit_uniqueids);
             // Use the aggregated polling unit id to get and sum announced polling unit result and group it to parties.
