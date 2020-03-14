@@ -46,7 +46,7 @@ module.exports = (app, db) => {
             .catch(error=>res.status(500).json({message:"Error occurred"}));
     });
 
-    app.get("wards/:lga_id", (req,res) => {
+    app.get("/wards/:lga_id", (req,res) => {
         const {lga_id} = req.params;
         db.ward.findAll({where:{lga_id}})
         .map(async(result) => {
