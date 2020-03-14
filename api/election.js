@@ -2,21 +2,21 @@ module.exports = (app, db) => {
     app.get("/test/:name", (req,res) => {
         res.status(200).json({body:req.params.name,ok:"hello"});
     });
-    
-    app.get( "/polling-units", (req, res) =>
-      db.PollingUnit.findAll()
+
+    app.get( "/polling-units", (req, res) => {
+      db.polling_unit.findAll()
         .map(async(result) => {
             const {ward_id,uniquewardid} = result;
-            const ward = await db.Ward.findOne({where:{unique_id:ward_id}});
-            const lga = await db.Lga.findOne({where:{uniqueid:uniquewardid}});
+            const ward = await db.ward.findOne({where:{unique_id:ward_id}});
+            const lga = await db.lga.findOne({where:{uniqueid:uniquewardid}});
             return {result,ward,lga}
         })
         .then(result=>res.status(200).json(result))
         .catch(error=>res.status(500).json({message:"Error occurred"}))
-    );
+    });
   
     app.get( "/polling-unit-results/:id", (req, res) => {
-        db.PollingUnit.findOne({where:{uniqueid:req.params.id}})
+        db.pollingUnit.findOne({where:{uniqueid:req.params.id}})
             .then(async result=> {
                 const announcedPuResult = await db.AnnouncedPuResult.findAll({
                     where:{polling_unit_uniqueid:req.params.id}
