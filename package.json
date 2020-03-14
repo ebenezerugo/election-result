@@ -1,0 +1,27 @@
+{
+  "name": "election-result",
+  "version": "1.0.0",
+  "description": "To result for any individual polling unit on a web page, To display the summed total result of all the polling units under any particular local government, A page to be used to store result for ALL parties for a new polling unit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebenezerugo/election-result.git"
+  },
+  "keywords": [
+    "election",
+    "result",
+    "pollingUnit"
+  ],
+  "author": "Ebenezer Ugo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ebenezerugo/election-result/issues"
+  },
+  "homepage": "https://github.com/ebenezerugo/election-result#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
