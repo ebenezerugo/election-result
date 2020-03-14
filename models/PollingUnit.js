@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     polling_unit_id: DataTypes.INTEGER,
-    ward_id: DataTypes.INTEGER,
+    ward_id: DataTypes.INTEGER, 
     lga_id: DataTypes.INTEGER,
     uniquewardid: DataTypes.INTEGER,
     polling_unit_number: DataTypes.STRING,
