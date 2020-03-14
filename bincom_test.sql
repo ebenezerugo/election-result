@@ -7,7 +7,7 @@
 -- Server version: 5.1.36
 -- PHP Version: 5.2.9-2
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -18,7 +18,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `bincom_test`
 --
--- CREATE DATABASE 'bincom_test';
+CREATE DATABASE `bincom_test`;
 USE `bincom_test`;
 
 -- --------------------------------------------------------
