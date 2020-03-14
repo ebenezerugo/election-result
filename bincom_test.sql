@@ -18,8 +18,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `bincom_test`
 --
-CREATE DATABASE 'bincom_test';
-USE 'bincom_test';
+-- CREATE DATABASE 'bincom_test';
+USE `bincom_test`;
 
 -- --------------------------------------------------------
 
