@@ -7,7 +7,10 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     state_name: DataTypes.STRING
-  }, {});
+  }, {
+    timestamps: false,
+    tableName: 'states'
+  });
   State.associate = function(models) {
     // associations can be defined here
   };

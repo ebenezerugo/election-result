@@ -8,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     partyid: DataTypes.STRING,
     partyname: DataTypes.STRING
-  }, {});
+  }, {
+    timestamps: false,
+    tableName: 'party'
+  });
   Party.associate = function(models) {
     // associations can be defined here
   };

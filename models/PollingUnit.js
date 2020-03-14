@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     date_entered: DataTypes.DATE,
     user_ip_address: DataTypes.STRING
   }, {
-    freezeTableName: true
+    timestamps: false,
+    tableName: 'polling_unit'
   });
   PollingUnit.associate = function(models) {
     // associations can be defined here

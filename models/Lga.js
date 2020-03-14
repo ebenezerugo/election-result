@@ -13,7 +13,10 @@ module.exports = (sequelize, DataTypes) => {
     entered_by_user: DataTypes.STRING,
     date_entered: DataTypes.DATE,
     user_ip_address: DataTypes.STRING
-  }, {});
+  }, {
+    timestamps: false,
+    tableName: 'lga'
+  });
   Lga.associate = function(models) {
     // associations can be defined here
   };

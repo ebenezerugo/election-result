@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     phone: DataTypes.STRING,
     pollingunit_uniqueid: DataTypes.INTEGER
-  }, {});
+  }, {
+    timestamps: false,
+    tableName: 'agentname'
+  });
   AgentName.associate = function(models) {
     // associations can be defined here
   };
