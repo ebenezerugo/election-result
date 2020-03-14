@@ -21,14 +21,15 @@ module.exports = (app, db) => {
     });
   
     app.get( "/polling-unit-results/:id", (req, res) => {
-        db.pollingUnit.findOne({where:{uniqueid:req.params.id}})
+        db.polling_unit.findOne({where:{uniqueid:req.params.id}})
             .then(async result=> {
-                const announcedPuResult = await db.AnnouncedPuResult.findAll({
+                const announcedPuResult = await db.announced_pu_results.findAll({
                     where:{polling_unit_uniqueid:req.params.id}
                   });
-                  return {result, announcedPuResult};
+                  result.dataValues.announcedPuResult = announcedPuResult;
+                  return result;
             })
-            .then( (result) => res.json(result))
+            .then( (result) => res.status(200).json(result))
             .catch(error=>res.status(500).json({message:"Error occurred"}))
     });
   
