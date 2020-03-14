@@ -1,3 +1,5 @@
+const {Op} = require('sequelize');
+
 module.exports = (app, db) => {
     app.get("/test/:name", (req,res) => {
         res.status(200).json({body:req.params.name,ok:"hello"});
@@ -93,7 +95,7 @@ module.exports = (app, db) => {
             let parties_score = await db.announced_pu_results.findAll({
                 attributes: [
                     'party_abbreviation',
-                    [sequelize.fn('sum', sequelize.col('party_score')), 'total_party_score'],
+                    [db.sequelize.fn('sum', db.sequelize.col('party_score')), 'total_party_score'],
                 ],
                 group: ['party_abbreviation'],
                 where:{polling_unit_uniqueid:{[Op.or]: polling_unit_uniqueIds}}
