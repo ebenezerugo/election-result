@@ -9,7 +9,9 @@ module.exports = (app, db) => {
             const {lga_id,uniquewardid} = result;
             const ward = await db.ward.findOne({where:{uniqueid:uniquewardid}});
             const lga = await db.lga.findOne({where:{lga_id:lga_id}});
-            return {result,ward,lga}
+            result.dataValues.ward = ward;
+            result.dataValues.lga = lga;
+            return result;
         })
         .then(result=>res.status(200).json(result))
         .catch(error=>{
