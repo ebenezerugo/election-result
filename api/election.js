@@ -82,6 +82,8 @@ module.exports = (app, db) => {
     app.get("/total-polling-unit/:lga_id", async (req,res) => {
         const {lga_id} = req.params;
         try {
+
+            let lga = await db.lga.findOne({where:{lga_id}});
             // Getting the polling units in a local goverment area.
             let polling_units = await db.polling_unit.findAll({where:{lga_id}});
             let total_polling_units_count = polling_units.length;
@@ -101,7 +103,11 @@ module.exports = (app, db) => {
                 where:{polling_unit_uniqueid:{[Op.or]: polling_unit_uniqueIds}}
             });
 
-            res.status(200).json({total_polling_units_count,parties_score})
+            let overall_total = parties_score.reduce(function(previousValue, currentValue) {
+                return previousValue.total_party_score + currentValue.total_party_score
+              });
+
+            res.status(200).json({lga,total_polling_units_count,parties_score,overall_total})
         } catch (error) {
             console.log(error);
             res.status(500).json({message:"Error occurred",error});
