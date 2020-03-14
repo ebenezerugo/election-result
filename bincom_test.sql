@@ -18,7 +18,7 @@
 --
 -- Database: `bincom_test`
 --
-CREATE DATABASE `bincom_test`;
+-- CREATE DATABASE `bincom_test`;
 USE `bincom_test`;
 
 -- --------------------------------------------------------
