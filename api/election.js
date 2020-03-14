@@ -85,12 +85,12 @@ module.exports = (app, db) => {
             // Getting the polling units in a local goverment area.
             let polling_units = await db.polling_unit.findAll({where:{lga_id}});
             let total_polling_units_count = polling_units.length;
-            console.log(polling_units);
+
             // Aggregating all the polling units id together in to an array
             let polling_unit_uniqueIds = polling_units.map(polling_unit=>{
                 return polling_unit.uniqueid;
             });
-            console.log(polling_unit_uniqueids);
+            console.log(polling_unit_uniqueIds);
             // Use the aggregated polling unit id to get and sum announced polling unit result and group it to parties.
             let parties_score = await db.announced_pu_results.findAll({
                 attributes: [
