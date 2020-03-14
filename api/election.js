@@ -12,7 +12,10 @@ module.exports = (app, db) => {
             return {result,ward,lga}
         })
         .then(result=>res.status(200).json(result))
-        .catch(error=>res.status(500).json({message:"Error occurred"}))
+        .catch(error=>{
+            console.log(error);
+            res.status(500).json({message:"Error occurred",error})
+        });
     });
   
     app.get( "/polling-unit-results/:id", (req, res) => {
