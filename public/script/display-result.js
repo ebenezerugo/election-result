@@ -45,10 +45,10 @@ const getAllLgaUrl = "http://18.130.90.129:9000/lga";
 // fetchStates();
 
 function onStateChange(state_value) {
-    let selectLga = `<select class="form-control" id="lgaInputField" onchange="onLgaChange">`;
     let xhr = new XMLHttpRequest();
     xhr.open("GET", `${getAllLgaUrl}/${state_value}`);
     xhr.onload = function() {
+        let selectLga = `<select class="form-control" id="lgaInputField" onchange="onLgaChange">`;
         if(xhr.status == 200) {
             let data = JSON.parse(this.response);
             console.log(data);
