@@ -164,7 +164,7 @@ function onPollingUnitChange(pu_value) {
                     // opt.value = data[i].uniqueid;
                     // opt.innerHTML = data[i].polling_unit_name;
                     // pollingUnitInputField.appendChild(opt);
-                    let row = result_table.insertRow(i);
+                    let row = result_table.insertRow(i+1);
                     let cell0 = row.insertCell(0);
                     let cell1 = row.insertCell(1);
                     let cell2 = row.insertCell(2);
@@ -178,7 +178,7 @@ function onPollingUnitChange(pu_value) {
                     cell4.innerHTML = announcedPuResult[i].user_ip_address;
                     cell5.innerHTML = announcedPuResult[i].date_entered;
                 }
-                let row = result_table.insertRow(announcedPuResult.length);
+                let row = result_table.insertRow(0);
                 let cell0 = row.insertCell(0);
                 let cell1 = row.insertCell(1);
                 let cell2 = row.insertCell(2);
