@@ -151,7 +151,7 @@ function onPollingUnitChange(pu_value) {
             let {announcedPuResult} = data;
             if(announcedPuResult.length > 0) {
                 // Load the state into the select options
-                for (let i = 0; i<data.length; i++){
+                for (let i = 0; i<announcedPuResult.length; i++){
                     // let opt = document.createElement('option');
                     // opt.value = data[i].uniqueid;
                     // opt.innerHTML = data[i].polling_unit_name;
