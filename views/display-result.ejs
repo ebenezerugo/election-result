@@ -55,29 +55,33 @@
     <div class="container">
       <form>
           <div id="state" class="form-group">
-              <label for="stateInputField">Select State</label>
+              <label for="stateInputField"> State</label>
               <select class="form-control" id="stateInputField" onchange="onStateChange(this.value)">
+                <option>Select</option>
               </select>
             </div>
       </form>
       <form>
         <div id="lga" class="form-group">
-            <label for="lgaInputField">Select Local Government Area</label>
+            <label for="lgaInputField"> Local Government Area</label>
             <select class="form-control" id="lgaInputField" onchange="onLgaChange(this.value)">
+                <option>Select</option>
             </select>
           </div>
     </form>
     <form>
         <div id="ward" class="form-group">
-            <label for="wardInputField">Select Ward</label>
+            <label for="wardInputField"> Ward</label>
             <select class="form-control" id="wardInputField" onchange="onWardChange(this.value)">
+                <option>Select</option>
             </select>
           </div>
     </form>
     <form>
         <div id="pollingUnit" class="form-group">
-            <label for="pollingUnitInputField">Select Polling Unit</label>
+            <label for="pollingUnitInputField">Polling Unit</label>
             <select class="form-control" id="pollingUnitInputField" onchange="onPollingUnitChange(this.value)">
+                <option>Select</option>
             </select>
           </div>
     </form>
@@ -89,25 +93,25 @@
   <!-- Jumbotron -->
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-4">Sapele Ward 8 PU _ </h1>
-      <h3>DT1708006</h3>
-      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      <h1 class="display-4">Name: <span id="polling_unit_name"></span></h1>
+      <h3>Number: <span id="polling_unit_number"></span></h3>
+      <p class="lead">Description: <span id="polling_unit_description"></span></p>
 
       <div class="row">
         <div class="col-sm">
-            lat	"5.59371889"
+            Latitude: <span id="lat"></span>
         </div>
         <div class="col-sm">
-            long	"5.999311165"
+            Longitude:<span id=""long></span>
         </div>
         <div class="col-sm">
-            entered_by_user	null
+            Entered By: <span id="entered_by_user"></span>
         </div>
         <div class="col-sm">
-            date_entered	null
+            Date Entered: <span id="date_entered"></span>
         </div>
         <div class="col-sm">
-            user_ip_address	null
+            User Ip Address: <span id="user_ip_address"></span>
         </div>
       </div>
     </div>
@@ -132,20 +136,6 @@
         <td>Otto</td>
         <td>@mdo</td>
         <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@fat</td>
       </tr>
     </tbody>
   </table>

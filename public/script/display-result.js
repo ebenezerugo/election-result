@@ -9,11 +9,20 @@ const lga = document.getElementById("lga");
 const ward = document.getElementById("ward");
 const pollingUnit = document.getElementById("pollingUnit");
 
+const polling_unit_name = document.getElementById("polling_unit_name");
+const polling_unit_number = document.getElementById("polling_unit_number");
+const polling_unit_description = document.getElementById("polling_unit_description");
+const lat = document.getElementById("lat");
+const long = document.getElementById("long");
+const entered_by_user = document.getElementById("entered_by_user");
+const date_entered = document.getElementById("date_entered");
+const user_ip_address = document.getElementById("user_ip_address");
+
 // Initially do not display this elements.
 // lga.parentNode.removeChild(lga); 
 // ward.parentNode.removeChild(ward); 
 // pollingUnit.parentNode.removeChild(pollingUnit); 
-result.parentNode.removeChild(result); 
+result.style.display= none; 
 
 // if (x.style.display === "none") {
 //     x.style.display = "block";
@@ -25,6 +34,7 @@ const getAllStateUrl = "http://18.130.90.129:9000/states";
 const getAllLgaUrl = "http://18.130.90.129:9000/lga";
 const getAllWardUrl = "http://18.130.90.129:9000/wards";
 const getAllPuUrl = "http://18.130.90.129:9000/polling-units";
+const getAllPuResultUrl = "http://18.130.90.129:9000/polling-unit-results";
 
 
 (function fetchStates () {
@@ -114,6 +124,39 @@ function onWardChange(ward_value) {
                     pollingUnitInputField.appendChild(opt);
                 }
             }
+        }
+    };
+    xhr.send();
+}
+
+// When pu changes pu results shows up.
+function onPollingUnitChange(pu_value) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", `${getAllPuResultUrl}/${pu_value}`);
+    xhr.onload = function() {
+        if(xhr.status == 200) {
+        
+            let data = JSON.parse(this.response);
+            console.log(data);
+            polling_unit_name.innerHTML = data.polling_unit_name;
+            polling_unit_number.innerHTML = data.polling_unit_number;
+            polling_unit_description.innerHTML = data.polling_unit_description;
+            lat.innerHTML = data.lat;
+            long.innerHTML = data.long;
+            entered_by_user.innerHTML = data.entered_by_user;
+            date_entered.innerHTML = data.date_entered;
+            user_ip_address.innerHTML = data.user_ip_address;
+
+            // if(data.length > 0) {
+            //     // Load the state into the select options
+            //     for (let i = 0; i<data.length; i++){
+            //         let opt = document.createElement('option');
+            //         opt.value = data[i].uniqueid;
+            //         opt.innerHTML = data[i].polling_unit_name;
+            //         pollingUnitInputField.appendChild(opt);
+            //     }
+            // }
+            result.style.display= block; 
         }
     };
     xhr.send();
