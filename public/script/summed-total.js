@@ -66,7 +66,7 @@ function onStateChange(state_value) {
 
 function onLgaChange(lga_value) {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", `${getAllWardUrl}/${lga_value}`);
+    xhr.open("GET", `${getAllTotalResultUrl}/${lga_value}`);
     xhr.onload = function() {
         if(xhr.status == 200) {
 
