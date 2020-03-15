@@ -73,14 +73,14 @@ function onLgaChange(lga_value) {
             let data = JSON.parse(this.response);
             console.log(data);
             lga_name.innerHTML = data.lga_name;
-            lga_description.innerHTML = data.lga_description;
-            state_name.innerHTML = data.state.state_name;
+            lga_description.innerHTML = data.lga.lga_description;
+            state_name.innerHTML = data.lga.state.state_name;
             total_polling_units_count.innerHTML = data.total_polling_units_count;
             overall_total.innerHTML = data.overall_total;
 
-            entered_by_user.innerHTML = data.entered_by_user;
-            date_entered.innerHTML = data.date_entered;
-            user_ip_address.innerHTML = data.user_ip_address;
+            entered_by_user.innerHTML = data.lga.entered_by_user;
+            date_entered.innerHTML = data.lga.date_entered;
+            user_ip_address.innerHTML = data.lga.user_ip_address;
 
             const {parties_score} = data;
             if(parties_score.length > 0) {
