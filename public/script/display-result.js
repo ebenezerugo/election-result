@@ -30,6 +30,13 @@ const getAllStateUrl = "http://18.130.90.129:9000/states";
         if(xhr.status == 200) {
             let data = JSON.parse(this.response);
             console.log(data);
+
+            for (let i = 0; i<=data.length; i++){
+                let opt = document.createElement('option');
+                opt.value = data[i].state_id;
+                opt.innerHTML = data[i].state_name;
+                stateInputField.appendChild(opt);
+            }
         }
     };
     xhr.send();
