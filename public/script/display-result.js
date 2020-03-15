@@ -89,6 +89,12 @@ function onLgaChange(lga_value) {
     xhr.open("GET", `${getAllWardUrl}/${lga_value}`);
     xhr.onload = function() {
         if(xhr.status == 200) {
+            let initial_options = wardInputField.length;
+            if(initial_options > 0) {
+                for (let i = 0; i<initial_options.length; i++) {
+                    wardInputField.remove(i); 
+                }
+            }
         
             let data = JSON.parse(this.response);
             console.log(data);
