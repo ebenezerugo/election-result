@@ -84,7 +84,7 @@ module.exports = (app, db) => {
         try {
 
             let lga = await db.lga.findOne({where:{lga_id}});
-            lga.dataValues.state = await db.state.findOne({where:{state_id:lga.state_id}});
+            lga.dataValues.state = await db.states.findOne({where:{state_id:lga.state_id}});
 
             // Getting the polling units in a local goverment area.
             let polling_units = await db.polling_unit.findAll({where:{lga_id}});
