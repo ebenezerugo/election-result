@@ -69,7 +69,7 @@ function onStateChange(state_value) {
             selectLga += `</select>`;
             console.log(selectLga);
             lga.innerHTML = selectLga;
-            lga.innerHTML = '<span>Hello</span>';
+            lga.innerHTML = '<select class="form-control" id="lgaInputField" onchange="onLgaChange"><option value=1>Aniocha North</option><option value=2>Aniocha - South</option><option value=5>Ethiope East</option><option value=6>Ethiope West</option><option value=7>Ika North - East</option><option value=8>Ika - South</option><option value=9>Isoko North</option><option value=10>Isoko South</option><option value=11>Ndokwa East</option><option value=12>Ndokwa West</option><option value=13>Okpe</option><option value=14>Oshimili - North</option><option value=15>Oshimili - South</option><option value=16>Patani</option><option value=17>Sapele</option><option value=18>Udu</option><option value=19>Ughelli North</option><option value=20>Ughelli South</option><option value=21>Ukwuani</option><option value=22>Uvwie</option><option value=31>Bomadi</option><option value=32>Burutu</option><option value=33>Warri North</option><option value=34>Warri South</option><option value=35>Warri South West</option></select>';
         }
 
     };
