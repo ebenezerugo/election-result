@@ -18,13 +18,15 @@ const entered_by_user = document.getElementById("entered_by_user");
 const date_entered = document.getElementById("date_entered");
 const user_ip_address = document.getElementById("user_ip_address");
 
+result.style.display= "none"; 
+
 const result_table = document.getElementById("result_table");
 
 // Initially do not display this elements.
 // lga.parentNode.removeChild(lga); 
 // ward.parentNode.removeChild(ward); 
 // pollingUnit.parentNode.removeChild(pollingUnit); 
-result.style.display= "none"; 
+
 
 // if (x.style.display === "none") {
 //     x.style.display = "block";
