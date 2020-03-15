@@ -55,7 +55,7 @@ function onStateChange(state_value) {
 
             if(data.length > 0) {
                 // Load the state into the select options
-                for (let i = 0; i<=data.length; i++){
+                for (let i = 0; i<data.length; i++){
                     // let opt = document.createElement('option');
                     // opt.value = data[i].lga_id;
                     // opt.innerHTML = data[i].lga_name;
