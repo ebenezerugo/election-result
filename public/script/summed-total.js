@@ -72,7 +72,7 @@ function onLgaChange(lga_value) {
 
             let data = JSON.parse(this.response);
             console.log(data);
-            lga_name.innerHTML = data.lga_name;
+            lga_name.innerHTML = data.lga.lga_name;
             lga_description.innerHTML = data.lga.lga_description;
             state_name.innerHTML = data.lga.state.state_name;
             total_polling_units_count.innerHTML = data.total_polling_units_count;
@@ -86,13 +86,9 @@ function onLgaChange(lga_value) {
             if(parties_score.length > 0) {
                 let scores = ``;
                 for (let i = 0; i<parties_score.length; i++){
-                    let opt = document.createElement('option');
-                    opt.value = data[i].ward_id;
-                    opt.innerHTML = data[i].ward_name;
-                    wardInputField.appendChild(opt);
                     scores += `
                     <span>${parties_score[i].party_abbreviation} - ${parties_score[i].total_party_score}</span>
-                    `
+                    `;
                 }
                 parties_score_view.innerHTML = scores;
             }
