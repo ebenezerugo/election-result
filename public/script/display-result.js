@@ -49,29 +49,20 @@ function onStateChange(state_value) {
     xhr.open("GET", `${getAllLgaUrl}/${state_value}`);
     xhr.onload = function() {
         if(xhr.status == 200) {
-            let selectLga =``;
-            selectLga = `<select class="form-control" id="lgaInputField" onchange="onLgaChange">`;
-
+        
             let data = JSON.parse(this.response);
             console.log(data);
 
             if(data.length > 0) {
                 // Load the state into the select options
                 for (let i = 0; i<data.length; i++){
-                    // let opt = document.createElement('option');
-                    // opt.value = data[i].lga_id;
-                    // opt.innerHTML = data[i].lga_name;
-                    // lgaInputField.appendChild(opt);
-                    selectLga += `<option value=${data[i].lga_id}>${data[i].lga_name}</option>`;
+                    let opt = document.createElement('option');
+                    opt.value = data[i].lga_id;
+                    opt.innerHTML = data[i].lga_name;
+                    lgaInputField.appendChild(opt);
                 }
             }
-
-            selectLga += `</select>`;
-            console.log(selectLga);
-            lga.innerHTML = `${selectLga}`;
-            lga.innerHTML = '<span>Hello</span>';
         }
-
     };
     xhr.send();
 }
