@@ -22,7 +22,7 @@ const user_ip_address = document.getElementById("user_ip_address");
 // lga.parentNode.removeChild(lga); 
 // ward.parentNode.removeChild(ward); 
 // pollingUnit.parentNode.removeChild(pollingUnit); 
-result.style.display= none; 
+result.style.display= "none"; 
 
 // if (x.style.display === "none") {
 //     x.style.display = "block";
