@@ -103,12 +103,9 @@ module.exports = (app, db) => {
                 where:{polling_unit_uniqueid:{[Op.or]: polling_unit_uniqueIds}}
             });
 
-            let overall_total = function(){
-                var total = 0;
-                for (var i = 0; i < parties_score.length; i++) {
-                       total = total + parties_score[i].total_party_score;
-                     }
-                return total;
+            let overall_total = 0;
+            for (var i = 0; i < parties_score.length; i++) {
+                overall_total = overall_total + parties_score[i].total_party_score;
             }
 
             res.status(200).json({lga,total_polling_units_count,parties_score,overall_total})
