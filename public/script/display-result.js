@@ -32,7 +32,7 @@ const getAllLgaUrl = "http://18.130.90.129:9000/lga";
             let data = JSON.parse(this.response);
 
             // Load the state into the select options
-            for (let i = 0; i<=data.length; i++){
+            for (let i = 0; i<data.length; i++){
                 let opt = document.createElement('option');
                 opt.value = data[i].state_id;
                 opt.innerHTML = data[i].state_name;
@@ -48,8 +48,9 @@ function onStateChange(state_value) {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", `${getAllLgaUrl}/${state_value}`);
     xhr.onload = function() {
-        let selectLga = `<select class="form-control" id="lgaInputField" onchange="onLgaChange">`;
         if(xhr.status == 200) {
+            let selectLga = `<select class="form-control" id="lgaInputField" onchange="onLgaChange">`;
+
             let data = JSON.parse(this.response);
             console.log(data);
 
@@ -63,10 +64,12 @@ function onStateChange(state_value) {
                     selectLga += `<option value=${data[i].lga_id}>${data[i].lga_name}</option>`;
                 }
             }
+
+            selectLga += `</select>`;
+            console.log(selectLga);
+            lga.innerHTML = selectLga;
+            lga.innerHTML = '<span>Hello</span>';
         }
-        selectLga += `</select>`;
-        lga.innerHTML = selectLga;
-        lga.innerHTML = '<span>Hello</span>';
 
     };
     xhr.send();
