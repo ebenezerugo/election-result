@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Election Portal</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Favicons -->
+
+    <meta name="theme-color" content="#563d7c">
+    
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="/">Election Portal</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/display-result">Display Result <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/summed-total">Summed Total Result</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/create-result">Create Result</a>
+      </li>
+    
+    </ul>
+    
+  </div>
+</nav>
+
+
+
+<main role="main" class="container">
+
+  <div class="starter-template">
+    <h1>Display Result</h1>
+    <p class="lead">Display result for individual polling unit.</p>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <form>
+          <div id="state" class="form-group">
+              <label for="stateInputField">Select State</label>
+              <select class="form-control" id="stateInputField" onchange="onStateChange((this.value))">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+      </form>
+      <form>
+        <div id="lga" class="form-group">
+            <label for="lgaInputField">Local Government Area</label>
+            <select class="form-control" id="lgaInputField" onchange="onLgaChange">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+    </form>
+    <form>
+        <div id="ward" class="form-group">
+            <label for="wardInputField">Ward</label>
+            <select class="form-control" id="wardInputField" onchange="onWardChange">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+    </form>
+    <form>
+        <div id="pollingUnit" class="form-group">
+            <label for="pollingUnitInputField">Polling Unit</label>
+            <select class="form-control" id="pollingUnitInputField" onchange="onPollingUnitChange">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+    </form>
+    </div>
+  </div>
+
+  <!-- Result -->
+<div id="result">
+  <!-- Jumbotron -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Sapele Ward 8 PU _ </h1>
+      <h3>DT1708006</h3>
+      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+
+      <div class="row">
+        <div class="col-sm">
+            lat	"5.59371889"
+        </div>
+        <div class="col-sm">
+            long	"5.999311165"
+        </div>
+        <div class="col-sm">
+            entered_by_user	null
+        </div>
+        <div class="col-sm">
+            date_entered	null
+        </div>
+        <div class="col-sm">
+            user_ip_address	null
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Party</th>
+        <th scope="col">Score</th>
+        <th scope="col">Entered by</th>
+        <th scope="col">Ip Address</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td>@fat</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</main><!-- /.container -->
+
+    <script src="/script/jquery.js"></script>
+    <script src="/script/bootstrap.min.js" ></script>
+    <script src="/script/display-result.js"></script>
+</body>
+</html>

@@ -19,3 +19,16 @@ body {
       font-size: 3.5rem;
     }
   }  
+
+  .icon-img {
+      width: 9rem;
+      margin-left: 3rem;
+  }
+
+  .card {
+      border: none;
+  }
+
+  .card-row {
+      margin-left: 20%;
+  }
