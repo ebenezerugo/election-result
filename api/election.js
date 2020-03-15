@@ -104,8 +104,8 @@ module.exports = (app, db) => {
             });
 
             let overall_total = 0;
-            for (var i = 0; i < parties_score.length; i++) {
-                overall_total = overall_total + parties_score[i].total_party_score;
+            for (let party_score of parties_score) {
+                overall_total += party_score.total_party_score;
             }
 
             res.status(200).json({lga,total_polling_units_count,parties_score,overall_total})
