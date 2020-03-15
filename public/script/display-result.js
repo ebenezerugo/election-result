@@ -164,7 +164,6 @@ function onPollingUnitChange(pu_value) {
                     // opt.value = data[i].uniqueid;
                     // opt.innerHTML = data[i].polling_unit_name;
                     // pollingUnitInputField.appendChild(opt);
-                    console.log(announcedPuResult);
                     let row = result_table.insertRow(i);
                     let cell0 = row.insertCell(0);
                     let cell1 = row.insertCell(1);
@@ -179,6 +178,20 @@ function onPollingUnitChange(pu_value) {
                     cell4.innerHTML = announcedPuResult[i].user_ip_address;
                     cell5.innerHTML = announcedPuResult[i].date_entered;
                 }
+                let row = result_table.insertRow(announcedPuResult.length);
+                let cell0 = row.insertCell(0);
+                let cell1 = row.insertCell(1);
+                let cell2 = row.insertCell(2);
+                let cell3 = row.insertCell(3);
+                let cell4 = row.insertCell(4);
+                let cell5 = row.insertCell(5);
+                cell0.innerHTML = "#";
+                cell1.innerHTML = "Party";
+                cell2.innerHTML = "Score";
+                cell3.innerHTML = "Entered by";
+                cell4.innerHTML = "Ip Address";
+                cell5.innerHTML = "Date";
+
             }
             
         }
