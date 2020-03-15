@@ -137,7 +137,7 @@ function onPollingUnitChange(pu_value) {
     xhr.open("GET", `${getAllPuResultUrl}/${pu_value}`);
     xhr.onload = function() {
         if(xhr.status == 200) {
-        
+            result.style.display= "block"; 
             let data = JSON.parse(this.response);
             console.log(data);
             polling_unit_name.innerHTML = data.polling_unit_name;
@@ -172,7 +172,7 @@ function onPollingUnitChange(pu_value) {
                     cell5.innerHTML = announcedPuResult[i].date_entered;
                 }
             }
-            result.style.display= "block"; 
+            
         }
     };
     xhr.send();
