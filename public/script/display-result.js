@@ -48,7 +48,6 @@ function onStateChange(state_value) {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", `${getAllLgaUrl}/${state_value}`);
     xhr.onload = function() {
-        lga.innerHTML = '<span>Hello</span>';
         let selectLga = `<select class="form-control" id="lgaInputField" onchange="onLgaChange">`;
         if(xhr.status == 200) {
             let data = JSON.parse(this.response);
@@ -64,6 +63,8 @@ function onStateChange(state_value) {
         }
         selectLga += `</select>`;
         lga.innerHTML = selectLga;
+        lga.innerHTML = '<span>Hello</span>';
+
     };
     xhr.send();
 }
