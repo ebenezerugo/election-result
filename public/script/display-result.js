@@ -49,7 +49,8 @@ function onStateChange(state_value) {
     xhr.open("GET", `${getAllLgaUrl}/${state_value}`);
     xhr.onload = function() {
         if(xhr.status == 200) {
-            let selectLga = `<select class="form-control" id="lgaInputField" onchange="onLgaChange">`;
+            let selectLga =``;
+            selectLga = `<select class="form-control" id="lgaInputField" onchange="onLgaChange">`;
 
             let data = JSON.parse(this.response);
             console.log(data);
