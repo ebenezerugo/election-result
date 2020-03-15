@@ -87,7 +87,9 @@ function onLgaChange(lga_value) {
                 let scores = ``;
                 for (let i = 0; i<parties_score.length; i++){
                     scores += `
-                    <span>${parties_score[i].party_abbreviation} - ${parties_score[i].total_party_score}</span>
+                    <li class="list-group-item">
+                        <span>${parties_score[i].party_abbreviation} - ${parties_score[i].total_party_score}</span>
+                    </li>
                     `;
                 }
                 parties_score_view.innerHTML = scores;
