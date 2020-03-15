@@ -23,6 +23,9 @@ result.parentNode.removeChild(result);
 
 const getAllStateUrl = "http://18.130.90.129:9000/states";
 const getAllLgaUrl = "http://18.130.90.129:9000/lga";
+const getAllWardUrl = "http://18.130.90.129:9000/wards";
+const getAllPuUrl = "http://18.130.90.129:9000/polling-units";
+
 
 (function fetchStates () {
     let xhr = new XMLHttpRequest();
@@ -44,6 +47,7 @@ const getAllLgaUrl = "http://18.130.90.129:9000/lga";
 })();
 // fetchStates();
 
+// When state changes load lga
 function onStateChange(state_value) {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", `${getAllLgaUrl}/${state_value}`);
@@ -60,6 +64,54 @@ function onStateChange(state_value) {
                     opt.value = data[i].lga_id;
                     opt.innerHTML = data[i].lga_name;
                     lgaInputField.appendChild(opt);
+                }
+            }
+        }
+    };
+    xhr.send();
+}
+
+// When lga changes load wards
+function onLgaChange(lga_value) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", `${getAllWardUrl}/${lga_value}`);
+    xhr.onload = function() {
+        if(xhr.status == 200) {
+        
+            let data = JSON.parse(this.response);
+            console.log(data);
+
+            if(data.length > 0) {
+                // Load the state into the select options
+                for (let i = 0; i<data.length; i++){
+                    let opt = document.createElement('option');
+                    opt.value = data[i].ward_id;
+                    opt.innerHTML = data[i].ward_name;
+                    wardInputField.appendChild(opt);
+                }
+            }
+        }
+    };
+    xhr.send();
+}
+
+// When wards changes load pu.
+function onLgaChange(ward_value) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", `${getAllPuUrl}/${ward_value}`);
+    xhr.onload = function() {
+        if(xhr.status == 200) {
+        
+            let data = JSON.parse(this.response);
+            console.log(data);
+
+            if(data.length > 0) {
+                // Load the state into the select options
+                for (let i = 0; i<data.length; i++){
+                    let opt = document.createElement('option');
+                    opt.value = data[i].uniqueid;
+                    opt.innerHTML = data[i].polling_unit_name;
+                    pollingUnitInputField.appendChild(opt);
                 }
             }
         }
