@@ -147,7 +147,7 @@ function onPollingUnitChange(pu_value) {
         if(xhr.status == 200) {
             result.style.display= "block"; 
             let data = JSON.parse(this.response);
-            console.log(data);
+
             polling_unit_name.innerHTML = data.polling_unit_name;
             polling_unit_number.innerHTML = data.polling_unit_number;
             polling_unit_description.innerHTML = data.polling_unit_description;
