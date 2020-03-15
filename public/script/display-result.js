@@ -156,7 +156,7 @@ function onPollingUnitChange(pu_value) {
             //         pollingUnitInputField.appendChild(opt);
             //     }
             // }
-            result.style.display= block; 
+            result.style.display= "block"; 
         }
     };
     xhr.send();
