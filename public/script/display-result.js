@@ -68,7 +68,7 @@ function onStateChange(state_value) {
 
             selectLga += `</select>`;
             console.log(selectLga);
-            lga.innerHTML = selectLga;
+            lga.innerHTML = `${selectLga}`;
             lga.innerHTML = '<span>Hello</span>';
         }
 
