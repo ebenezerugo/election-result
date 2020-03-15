@@ -96,7 +96,7 @@ function onLgaChange(lga_value) {
 }
 
 // When wards changes load pu.
-function onLgaChange(ward_value) {
+function onWardChange(ward_value) {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", `${getAllPuUrl}/${ward_value}`);
     xhr.onload = function() {
