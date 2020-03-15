@@ -71,7 +71,7 @@ function onLgaChange(lga_value) {
         if(xhr.status == 200) {
 
             let data = JSON.parse(this.response);
-
+            console.log(data);
             lga_name.innerHTML = data.lga_name;
             lga_description.innerHTML = data.lga_description;
             state_name.innerHTML = data.state.state_name;
