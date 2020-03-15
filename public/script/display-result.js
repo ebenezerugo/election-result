@@ -10,9 +10,9 @@ const ward = document.getElementById("ward");
 const pollingUnit = document.getElementById("pollingUnit");
 
 // Initially do not display this elements.
-lga.parentNode.removeChild(lga); 
-ward.parentNode.removeChild(ward); 
-pollingUnit.parentNode.removeChild(pollingUnit); 
+// lga.parentNode.removeChild(lga); 
+// ward.parentNode.removeChild(ward); 
+// pollingUnit.parentNode.removeChild(pollingUnit); 
 result.parentNode.removeChild(result); 
 
 // if (x.style.display === "none") {
@@ -22,6 +22,7 @@ result.parentNode.removeChild(result);
 //   }
 
 const getAllStateUrl = "http://18.130.90.129:9000/states";
+const getAllLgaUrl = "http://18.130.90.129:9000/lga";
 
 (function fetchStates () {
     let xhr = new XMLHttpRequest();
@@ -30,6 +31,7 @@ const getAllStateUrl = "http://18.130.90.129:9000/states";
         if(xhr.status == 200) {
             let data = JSON.parse(this.response);
 
+            // Load the state into the select options
             for (let i = 0; i<=data.length; i++){
                 let opt = document.createElement('option');
                 opt.value = data[i].state_id;
@@ -43,7 +45,23 @@ const getAllStateUrl = "http://18.130.90.129:9000/states";
 // fetchStates();
 
 function onStateChange(state_value) {
-    console.log(state_value);
+    lga.innerHTML = `<select class="form-control" id="lgaInputField" onchange="onLgaChange"></select>`;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", `${getAllLgaUrl}/${state_value}`);
+    xhr.onload = function() {
+        if(xhr.status == 200) {
+            let data = JSON.parse(this.response);
+
+            // Load the state into the select options
+            for (let i = 0; i<=data.length; i++){
+                let opt = document.createElement('option');
+                opt.value = data[i].lga_id;
+                opt.innerHTML = data[i].lga_name;
+                lgaInputField.appendChild(opt);
+            }
+        }
+    };
+    xhr.send();
 }
 
   function login() {
