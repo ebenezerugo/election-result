@@ -106,7 +106,7 @@ module.exports = (app, db) => {
             let overall_total = function(){
                 var total = 0;
                 for (var i = 0; i < parties_score.length; i++) {
-                       total = total + parseInt(parties_score[i].total_party_score);
+                       total = total + parties_score[i].total_party_score;
                      }
                 return total;
             }
