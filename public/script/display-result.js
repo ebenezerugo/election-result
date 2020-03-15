@@ -51,7 +51,7 @@ function onStateChange(state_value) {
     xhr.onload = function() {
         if(xhr.status == 200) {
             let data = JSON.parse(this.response);
-
+            console.log(data);
             // Load the state into the select options
             for (let i = 0; i<=data.length; i++){
                 let opt = document.createElement('option');
