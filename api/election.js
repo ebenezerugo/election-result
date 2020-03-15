@@ -103,9 +103,7 @@ module.exports = (app, db) => {
                 where:{polling_unit_uniqueid:{[Op.or]: polling_unit_uniqueIds}}
             });
 
-            let overall_total = parties_score.reduce(function(previousValue, currentValue) {
-                return parseInt(previousValue.total_party_score) + parseInt(currentValue.total_party_score)
-              });
+            let overall_total = parties_score.reduce((sum, obj) => sum += parseInt(obj[total_party_score]))
 
             res.status(200).json({lga,total_polling_units_count,parties_score,overall_total})
         } catch (error) {
