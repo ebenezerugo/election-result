@@ -40,6 +40,30 @@ const getAllTotalResultUrl = "http://18.130.90.129:9000/total-polling-unit";
     xhr.send();
 })();
 
+// When state changes load lga
+function onStateChange(state_value) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", `${getAllLgaUrl}/${state_value}`);
+    xhr.onload = function() {
+        if(xhr.status == 200) {
+        
+            let data = JSON.parse(this.response);
+            console.log(data);
+
+            if(data.length > 0) {
+                // Load the state into the select options
+                for (let i = 0; i<data.length; i++){
+                    let opt = document.createElement('option');
+                    opt.value = data[i].lga_id;
+                    opt.innerHTML = data[i].lga_name;
+                    lgaInputField.appendChild(opt);
+                }
+            }
+        }
+    };
+    xhr.send();
+}
+
 function onLgaChange(lga_value) {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", `${getAllWardUrl}/${lga_value}`);
