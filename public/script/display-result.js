@@ -156,6 +156,7 @@ function onPollingUnitChange(pu_value) {
                     // opt.value = data[i].uniqueid;
                     // opt.innerHTML = data[i].polling_unit_name;
                     // pollingUnitInputField.appendChild(opt);
+                    console.log(announcedPuResult);
                     let row = result_table.insertRow(i);
                     let cell0 = row.insertCell(0);
                     let cell1 = row.insertCell(1);
