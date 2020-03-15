@@ -18,6 +18,8 @@ const entered_by_user = document.getElementById("entered_by_user");
 const date_entered = document.getElementById("date_entered");
 const user_ip_address = document.getElementById("user_ip_address");
 
+const result_table = document.getElementById("result_table");
+
 // Initially do not display this elements.
 // lga.parentNode.removeChild(lga); 
 // ward.parentNode.removeChild(ward); 
@@ -146,16 +148,29 @@ function onPollingUnitChange(pu_value) {
             entered_by_user.innerHTML = data.entered_by_user;
             date_entered.innerHTML = data.date_entered;
             user_ip_address.innerHTML = data.user_ip_address;
-
-            // if(data.length > 0) {
-            //     // Load the state into the select options
-            //     for (let i = 0; i<data.length; i++){
-            //         let opt = document.createElement('option');
-            //         opt.value = data[i].uniqueid;
-            //         opt.innerHTML = data[i].polling_unit_name;
-            //         pollingUnitInputField.appendChild(opt);
-            //     }
-            // }
+            let {announcedPuResult} = data;
+            if(announcedPuResult.length > 0) {
+                // Load the state into the select options
+                for (let i = 0; i<data.length; i++){
+                    // let opt = document.createElement('option');
+                    // opt.value = data[i].uniqueid;
+                    // opt.innerHTML = data[i].polling_unit_name;
+                    // pollingUnitInputField.appendChild(opt);
+                    let row = result_table.insertRow(i);
+                    let cell0 = row.insertCell(0);
+                    let cell1 = row.insertCell(1);
+                    let cell2 = row.insertCell(2);
+                    let cell3 = row.insertCell(3);
+                    let cell4 = row.insertCell(4);
+                    let cell5 = row.insertCell(5);
+                    cell0.innerHTML = i+1;
+                    cell1.innerHTML = announcedPuResult[i].party_abbreviation;
+                    cell2.innerHTML = announcedPuResult[i].party_score;
+                    cell3.innerHTML = announcedPuResult[i].entered_by_user;
+                    cell4.innerHTML = announcedPuResult[i].user_ip_address;
+                    cell5.innerHTML = announcedPuResult[i].date_entered;
+                }
+            }
             result.style.display= "block"; 
         }
     };
