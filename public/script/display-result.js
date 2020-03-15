@@ -29,7 +29,6 @@ const getAllStateUrl = "http://18.130.90.129:9000/states";
     xhr.onload = function() {
         if(xhr.status == 200) {
             let data = JSON.parse(this.response);
-            console.log(data);
 
             for (let i = 0; i<=data.length; i++){
                 let opt = document.createElement('option');
@@ -43,8 +42,8 @@ const getAllStateUrl = "http://18.130.90.129:9000/states";
 })();
 // fetchStates();
 
-function onStateChange(stateValue) {
-    
+function onStateChange(state_value) {
+    console.log(state_value);
 }
 
   function login() {
