@@ -103,7 +103,6 @@ module.exports = (app, db) => {
                 where:{polling_unit_uniqueid:{[Op.or]: polling_unit_uniqueIds}}
             });
 
-            console.log(parties_score);
             let overall_total = 0;
             for (let party_score of parties_score) {
                 overall_total += parseFloat(party_score.dataValues.total_party_score);
